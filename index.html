@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BackboneJs</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="container">
+		<div class="logo"><h2>Backbone<span>Js</span></h2></div>
+	</div>
+
+	<!-- Add Modal -->
+	  <div id="fromTemplateRender" class="modalViewDiv"></div>
+	<!-- /Add Modal --> 
+	<div class="container mainPage">
+	<button type="button" id="hello" class="btn btn-primary btn-lg pull-right" data-toggle="modal" data-target="#myModal">Add new person</button>	
+	<!-- data table view -->    
+	<table class="table table-condensed">
+		<thead>
+		 	<tr>
+			 	<th>Name</th>
+			 	<th>Email</th>
+			 	<th>Phone numer</th>
+			 	<th>Theme color</th>
+			 	<th>Date of birth</th>
+			 	<th colspan="2">Marks</th>
+		 	</tr>
+	 	</thead>
+	 	<tbody id="informationDataContainertable">
+	 		
+	 	</tbody>
+	 	<script type="text/template" id="tableData">
+		 	<tr>	
+			 	<td><%= data.get('fName') %></td>
+			 	<td><%= data.get('email') %></td>
+			 	<td><%= data.get('phone') %></td>
+			 	<td><%= data.get('themeColor') %></td>
+			 	<td><%= data.get('dob') %></td>
+			 	<td><%= data.get('marks') %></td>
+			 	<td><i id="deledata">delete</i></td>
+		 	</tr>
+	 	</script>
+	</table>
+	<!-- /data table view -->
+<!-- add data form templates -->
+<script type="text/template" id="formTemplate">
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h4 class="modal-title" id="myModalLabel">Add Information</h4>
+			      </div>
+			      <div class="modal-body">
+					<div class="formContainer">
+						<form class="form-horizontal">
+							<div class="form-group">
+							    <label for="name" class="col-lg-12">Name</label>
+							    <div class="col-lg-12">
+							      <input type="text" class="form-control" name="name">
+							    </div>
+							  </div>
+							  <div class="form-group">
+							    <label for="email" class="col-lg-12">Email</label>
+							    <div class="col-lg-12">
+							      <input type="email" class="form-control" name="email">
+							    </div>
+							  </div>
+							<div class="clearfix">
+							  <div class="form-group col-lg-6 pull-left">
+							    <label for="phone">Phone number</label>
+							     <input type="telephone" class="form-control" name="phone">
+							  </div>
+							  <div class="form-group col-lg-6 pull-right">
+							    <label for="themeColor">Choose theme color</label>
+							    <input type="color" class="form-control" value="#ff0000" name="themeColor">
+							  </div>
+							</div>
+							<div class="form-group">
+							    <label for="dob" class="col-lg-12">Date of birth</label>
+							    <div class="col-lg-12">
+							      <input type="date" class="form-control" value="" name="dob">
+							    </div>
+							</div>
+							<div class="clearfix">
+								<div class="form-group col-lg-6">
+								    <label for="marks">Marks</label>
+								      <input type="number" min="0" max="100" step="1" value="" class="form-control" value="" name="marks">
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary" id="saveFromData" data-dismiss="modal">Save Information</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>
+<!-- add data form templates -->
+<!-- plugin -->
+<!-- Can't change the sequeance of files -->
+<script src="js/underscore-min.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/backbone-min.js"></script>
+<script src="js/formdata.js"></script>
+<!-- plugin -->
+</body>
+</html>
